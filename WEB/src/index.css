@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1A1A1A;
+  font-family: 'Inter', sans-serif;
+}
+
+/* MenuBar */
+
+.menuBar {
+  background-color: #6F6F6F;
+  height: 100px;
+  position: relative;
+}
+
+.titleSite {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-left: 3%;
+}
+
+/* Home Page */
+
+.statutEncHome {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  height: 100px;
+  width: 75%;
+  background-color: #0085FF;
+  border-radius: 15px;
+  position: relative;
+}
+
+.statutTitleHome {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-left: 3%;
+}
+
+.detailsService {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 75%;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 15px;
+}
+
+.service {
+  color: white;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+}
+
+.serviceTitles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceName {
+  flex: 1;
+}
+
+.serviceStatusNow {
+  color: #00B811;
+  margin-left: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.listServiceDay {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  flex-direction: row-reverse;
+}
+
+.serviceDay {
+  background-color: grey;
+  padding: 1px;
+  margin-left: 5px;
+  width: 1%;
+  height: 55px;
+  flex-shrink: 0;
+}
+
+.listServiceDay::-webkit-scrollbar {
+  height: 10px;
+  background-color: #757575;
+  border-radius: 5px;
+}
+
+.listServiceDay::-webkit-scrollbar-thumb {
+  background-color: #B3B3B3;
+  border-radius: 5px;
+}
+
+.listServiceDay::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
