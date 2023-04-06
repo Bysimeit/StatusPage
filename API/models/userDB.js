@@ -1,10 +1,10 @@
 const { getAdmin } = require('./adminDB');
-const { getCustomer } = require('./clientDB');
+const { getUser } = require('./clientDB');
 const { compareHash } = require('../utils/utils');
 
 module.exports.getAccount = async (client, mail, password) => {
     const promises = [];
-    const promiseClient = getCustomer(client, mail); 
+    const promiseClient = getUser(client, mail); 
     const promiseAdmin = getAdmin(client, mail);
     promises.push(promiseClient, promiseAdmin);
     const values = await Promise.all(promises);

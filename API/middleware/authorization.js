@@ -3,6 +3,5 @@ module.exports.mustBeAdmin = (req, res, next) => {
         next();
     } else {
         res.sendStatus(403);
-        
     }
 }

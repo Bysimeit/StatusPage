@@ -22,7 +22,7 @@ module.exports.postNewUser = async (client, email, name, password) => {
 
 // UPDATE
 module.exports.updateUser = async (client, id , name, email) => {
-    return await client.query("UPDATE client SET email = $1, firstName = $2 WHERE id = $3", [email, name, id]);
+    return await client.query("UPDATE client SET email = $1, name = $2 WHERE id = $3", [email, name, id]);
 }
 
 module.exports.updatePasswordUser = async (client, email, newPassword) => {

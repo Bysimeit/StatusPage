@@ -9,6 +9,7 @@ router.get('/', JWTMiddleWare.identification, AuthoMiddleware.mustBeAdmin ,Clien
 router.get('/:email', JWTMiddleWare.identification ,ClientController.getUser);
 router.post('/', ClientController.postNewUser);
 router.patch('/', JWTMiddleWare.identification, ClientController.updatePasswordEmailUser);
+router.patch('/edit', JWTMiddleWare.identification, AuthoMiddleware.mustBeAdmin, ClientController.updateUser);
 router.delete('/', JWTMiddleWare.identification, ClientController.deleteUser);
 
 module.exports = router;

@@ -99,6 +99,25 @@ module.exports.updatePasswordEmailUser = async (req, res) => {
     }    
 }
 
+module.exports.updateUser = async (req, res) => {
+    const {id, name, email} = req.body;
+
+    if (id === undefined || name === undefined || email === undefined) {
+        res.status(400).json("Données manquantes");
+    } else {
+        const client = await pool.connect();
+        try {
+            await ClientModel.updateUser(client, id , name, email);
+            res.sendStatus(204); 
+        } catch (error) {
+            console.error(error);
+            res.sendStatus(500);
+        } finally {
+            client.release();
+        }
+    }    
+}
+
 module.exports.deleteUser = async (req, res) => {
     const {id} = req.body;
 
