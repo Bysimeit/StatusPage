@@ -14,7 +14,7 @@ export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function processLogin(){
+    async function processLogin() {
         if (email !== "") {
             if (password !== "") {
                 const newToken = await loginAxios(email, password);

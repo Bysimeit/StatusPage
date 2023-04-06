@@ -33,13 +33,13 @@ export default function Profile(){
     }
 
     function handleManageServicesClick() {
-
+        navigate("/service");
     }
 
     function isAdmin() {
         if (user.isAdmin) {
             return (
-                <div className="adminPanel">
+                <div className="adminPanel adminPanelProfil">
                     <h3>Panel administrateur</h3>
                     <button className='adminButton' onClick={handleManageServicesClick}>Gérer les services</button>
                 </div>
@@ -47,7 +47,7 @@ export default function Profile(){
         }
     }
 
-    return(
+    return (
         <div>
             <MenuBar/>
             <div className="mainLogin">

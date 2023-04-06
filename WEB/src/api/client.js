@@ -6,11 +6,10 @@ const getAllUser = async (token) => {
         const response = await axios({
             method: 'get',
             headers: {'Authorization': 'Bearer ' + token},
-            url: `${API_URL}/client`,
+            url: `${API_URL}/client`
         });
 
-		const data = response.data
-		return data;
+		return response.data;
 	} catch (e) {
 		switch (e.response.status) {
 		case 404:
@@ -26,11 +25,10 @@ const getUser = async (eMail, token) => {
         const response = await axios({
             method: 'get',
             headers: {'Authorization': 'Bearer ' + token},
-            url: `${API_URL}/client/${eMail}`,
+            url: `${API_URL}/client/${eMail}`
         });
 
-		const data = response.data;
-		return data;
+		return response.data;
 	} catch (e) {
 		switch (e.response.status) {
 		case 400:
@@ -55,8 +53,7 @@ const postNewUser = async (name, password, eMail) => {
 			}
         });
 
-		const data = response.data
-		return data;
+		return response.data;
 	} catch (e) {
 		switch (e.response.status) {
 		case 400:
@@ -80,8 +77,7 @@ const updateUser = async (id, name, eMail, token) => {
 			}
 		});
 
-		const data = response.data
-		return data;
+		return response.data;
 	} catch(e) {
 		switch (e.response.status) {
 		case 400:
@@ -119,8 +115,7 @@ const updateEmailPasswordUser = async (oldPassword , newPassword, oldEmail, newE
 			});
 		}
 
-		const data = response.data
-		return data;
+		return response.data;
 	} catch (e) {
 		switch (e.response.status) {
 		case 400:
@@ -144,16 +139,13 @@ const deleteUser = async (id, token) => {
 			}
         });
 
-		const data = response.data
-		return data;
+		return response.data;
 	} catch (e) {
 		switch (e.response.status) {
-		case 400:
-			throw new Error('Données manquantes pour l\'ajout.');
 		default: 
 			throw new Error('Une erreur s\'est produite, veuillez réessayer plus tard.');
 		}
 	}
 };
 
-export {getAllUser, getUser, postNewUser, updateUser, updateEmailPasswordUser, deleteUser};
+export { getAllUser, getUser, postNewUser, updateUser, updateEmailPasswordUser, deleteUser };

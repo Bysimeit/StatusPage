@@ -1,55 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MenuBar from "../components/MenuBar";
+import { getAllService } from "../api/service";
 
 export default function Home() {
+    const [services, setServices] = useState([]);
+
     useEffect(() => {
         document.title = "ByStatus - Home";
+        getAllService().then((result) => {
+            setServices(result);
+        })
     }, []);
-
-    const services = [{
-        name: "WhatToCook - API",
-        status: 0,
-        history: [
-            100,
-            100,
-            100,
-            100,
-            100
-        ]
-    },
-    {
-        name: "WhatToCook - DB",
-        status: 1,
-        history: [
-            100,
-            100,
-            100,
-            100,
-            100
-        ]
-    },
-    {
-        name: "Sylkbot",
-        status: 2,
-        history: [
-            75,
-            60,
-            65,
-            50,
-            100
-        ]
-    },
-    {
-        name: "ByTechBot",
-        status: 3,
-        history: [
-            0,
-            0,
-            0,
-            10,
-            100
-        ]
-    }];
 
     // Green, Blue, Orange, Red
     const serviceStatusColors = ["#00B811", "#0085FF", "#FFB900", "#FF2E00"];
@@ -73,24 +34,26 @@ export default function Home() {
 
     function statusDayService(service) {
         const dayServices = [];
-    
-        for (let i = 0; i < 60; i++) {
-            let colorStatus;
-            if (service.history[i] >= 80) {
-                colorStatus = serviceStatusColors[0];
-            } else {
-                if (service.history[i] >= 30) {
-                    colorStatus = serviceStatusColors[2];
+        
+        if (service.uptimehistory !== null) {
+            for (let i = 0; i < 60; i++) {
+                let colorStatus;
+                if (service.uptimehistory[i] >= 80) {
+                    colorStatus = serviceStatusColors[0];
                 } else {
-                    if (service.history[i] >= 0) {
-                        colorStatus = serviceStatusColors[3];
+                    if (service.uptimehistory[i] >= 30) {
+                        colorStatus = serviceStatusColors[2];
+                    } else {
+                        if (service.uptimehistory[i] >= 0) {
+                            colorStatus = serviceStatusColors[3];
+                        }
                     }
                 }
-            }
-
-            dayServices.push(
-                <div key={i} className="serviceDay" style={{ flexGrow: 1, backgroundColor: colorStatus }}></div>
-            );
+    
+                dayServices.push(
+                    <div key={i} className="serviceDay" style={{ flexGrow: 1, backgroundColor: colorStatus }}></div>
+                );
+            }   
         }
     
         return (
