@@ -36,7 +36,7 @@ export default function Home() {
         const dayServices = [];
         
         if (service.uptimehistory !== null) {
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 59; i++) {
                 let colorStatus;
                 if (service.uptimehistory[i] >= 80) {
                     colorStatus = serviceStatusColors[0];

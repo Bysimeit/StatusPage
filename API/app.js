@@ -8,6 +8,12 @@ const port = 3050;
 const InternalIp = require("internal-ip");
 const internalIp = InternalIp.v4.sync();
 
+const pingService = require('./controllers/pingCtrl');
+pingService.pingServices();
+
+const updateUptimeHistory = require('./controllers/serviceCtrl');
+updateUptimeHistory.updateUptimeHistory();
+
 app.use(cors());
 app.use(express.json());
 app.use(bp.json());
