@@ -1,0 +1,17 @@
+FROM node:14-alpine
+WORKDIR /appweb
+COPY . /appweb
+COPY package*.json ./
+RUN npm i @reduxjs/toolkit
+RUN npm i @testing-library/jest-dom
+RUN npm i @testing-library/react
+RUN npm i @testing-library/user-event
+RUN npm i axios
+RUN npm i react
+RUN npm i react-dom
+RUN npm i react-redux
+RUN npm i react-router-dom
+RUN npm i react-scripts
+RUN npm i web-vitals
+EXPOSE 3000
+CMD ["npm", "start"]

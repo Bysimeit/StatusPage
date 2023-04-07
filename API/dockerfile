@@ -1,0 +1,17 @@
+FROM node:18.12.1-slim
+WORKDIR /app
+COPY . /app
+RUN npm install --save-dev nodemon
+RUN npm i bcrypt
+RUN npm i body-parser
+RUN npm i cors
+RUN npm i dotenv
+RUN npm i express
+RUN npm i express-promise-router
+RUN npm i internal-ip
+RUN npm i jsonwebtoken
+RUN npm i jwt-decode
+RUN npm i net
+RUN npm i pg
+EXPOSE 3050
+CMD ["npm", "run", "dev"]
