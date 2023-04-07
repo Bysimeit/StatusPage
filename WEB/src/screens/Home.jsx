@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MenuBar from "../components/MenuBar";
 import { getAllService } from "../api/service";
+import Iconico from "../components/Iconico";
 
 export default function Home() {
     const [services, setServices] = useState([]);
@@ -27,6 +28,7 @@ export default function Home() {
 
         return (
             <div className="statutEncHome" style={{ backgroundColor: serviceStatusColors[statusChecked] }}>
+                <Iconico status={statusChecked}/>
                 <p className="statutTitleHome">{serviceStatusTitle[statusChecked]}</p>
             </div>
         );
