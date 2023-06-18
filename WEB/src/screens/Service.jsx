@@ -36,7 +36,7 @@ export default function Service(){
 
     function handleModifyService(){
         setTypeDemand(2);
-        setTitlePopup("Mofifier un service");
+        setTitlePopup("Modifier un service");
         setSubmitPopup("Modifier");
         setSubmitPopupColor("#0085FF");
         setShowPopup(true);
